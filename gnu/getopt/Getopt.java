@@ -26,6 +26,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.framework.qual.AnnotatedFor;
+
 /**************************************************************************/
 
 /**
@@ -373,6 +376,7 @@ import java.text.MessageFormat;
   *
   * @see LongOpt
   */
+@AnnotatedFor({"nullness"})
 public class Getopt extends Object
 {
 
@@ -433,7 +437,7 @@ protected static final int RETURN_IN_ORDER = 3;
   * Also, when `ordering' is RETURN_IN_ORDER,
   * each non-option ARGV-element is returned here.
   */
-protected String optarg;
+protected @Nullable String optarg;
 
 /**
   *  Index in ARGV of the next element to be scanned.
@@ -470,7 +474,7 @@ protected int optopt = '?';
   * If this is zero, or a null string, it means resume the scan
   * by advancing to the next ARGV-element.  
   */
-protected String nextchar;
+protected @Nullable String nextchar;
 
 /**
   * This is the string describing the valid short options.
@@ -481,7 +485,7 @@ protected String optstring;
   * This is an array of LongOpt objects which describ the valid long 
   * options.
   */
-protected LongOpt[] long_options;
+protected LongOpt @Nullable [] long_options;
 
 /**
   * This flag determines whether or not we are parsing only long args
@@ -575,7 +579,7 @@ Getopt(String progname, String[] argv, String optstring)
   */
 public
 Getopt(String progname, String[] argv, String optstring, 
-       LongOpt[] long_options)
+       LongOpt @Nullable [] long_options)
 {
   this(progname, argv, optstring, long_options, false);
 }
@@ -598,7 +602,7 @@ Getopt(String progname, String[] argv, String optstring,
   */
 public
 Getopt(String progname, String[] argv, String optstring, 
-       LongOpt[] long_options, boolean long_only)
+       LongOpt @Nullable [] long_options, boolean long_only)
 {
   if (optstring.length() == 0)
     optstring = " ";
