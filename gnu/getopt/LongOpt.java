@@ -42,7 +42,7 @@ import org.checkerframework.framework.qual.AnnotatedFor;
   *
   * @see Getopt
   */
-@AnnotatedFor({"nullness"})
+/*@AnnotatedFor({"nullness"})*/
 public class LongOpt extends Object
 {
 
@@ -92,7 +92,7 @@ protected int has_arg;
   * here when this long option is encountered.  If this is null, the value
   * stored in "val" is treated as the name of an equivalent short option.
   */
-protected @Nullable StringBuffer flag;
+protected /*@Nullable*/ StringBuffer flag;
 
 /**
   * The value to store in "flag" if flag is not null, otherwise the
@@ -125,7 +125,7 @@ private ResourceBundle _messages = ResourceBundle.getBundle(
   */
 public
 LongOpt(String name, int has_arg, 
-        @Nullable StringBuffer flag, int val) throws IllegalArgumentException
+        /*@Nullable*/ StringBuffer flag, int val) throws IllegalArgumentException
 {
   // Validate has_arg
   if ((has_arg != NO_ARGUMENT) && (has_arg != REQUIRED_ARGUMENT) 
@@ -176,7 +176,7 @@ getHasArg()
   *
   * @return The value of 'flag'
   */
-public @Nullable StringBuffer
+public /*@Nullable*/ StringBuffer
 getFlag()
 {
   return(flag);
