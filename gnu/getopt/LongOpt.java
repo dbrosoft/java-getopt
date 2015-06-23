@@ -25,6 +25,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.framework.qual.AnnotatedFor;
+
 /**************************************************************************/
 
 /**
@@ -39,6 +42,7 @@ import java.text.MessageFormat;
   *
   * @see Getopt
   */
+@AnnotatedFor({"nullness"})
 public class LongOpt extends Object
 {
 
@@ -88,7 +92,7 @@ protected int has_arg;
   * here when this long option is encountered.  If this is null, the value
   * stored in "val" is treated as the name of an equivalent short option.
   */
-protected StringBuffer flag;
+protected @Nullable StringBuffer flag;
 
 /**
   * The value to store in "flag" if flag is not null, otherwise the
@@ -121,7 +125,7 @@ private ResourceBundle _messages = ResourceBundle.getBundle(
   */
 public
 LongOpt(String name, int has_arg, 
-        StringBuffer flag, int val) throws IllegalArgumentException
+        @Nullable StringBuffer flag, int val) throws IllegalArgumentException
 {
   // Validate has_arg
   if ((has_arg != NO_ARGUMENT) && (has_arg != REQUIRED_ARGUMENT) 
@@ -172,7 +176,7 @@ getHasArg()
   *
   * @return The value of 'flag'
   */
-public StringBuffer
+public @Nullable StringBuffer
 getFlag()
 {
   return(flag);
