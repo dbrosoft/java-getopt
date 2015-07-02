@@ -1,8 +1,8 @@
 # Makefile for Java port of GNU getopt
 
-JAVAC=${CHECKERFRAMEWORK}/checker/bin/javac
+JAVAC=${CHECKERFRAMEWORK}/checker/bin/javac -target 7 -source 7 
 CP=${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar
-FLAGS=-source 7 -target 7 -AuseConservativeDefaultsForUnannotatedSourceCode
+FLAGS=-processor nullness -AuseConservativeDefaultsForUnannotatedSourceCode -AprintErrorStack
 SOURCES=LongOpt.java Getopt.java GetoptDemo.java
 
 all: 
