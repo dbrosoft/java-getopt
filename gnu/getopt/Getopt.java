@@ -26,8 +26,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
+/*>>>
+import org.checkerframework.checker.nullness.qual.*;
 import org.checkerframework.framework.qual.AnnotatedFor;
+*/
 
 /**************************************************************************/
 
@@ -474,6 +476,7 @@ protected int optopt = '?';
   * If this is zero, or a null string, it means resume the scan
   * by advancing to the next ARGV-element.  
   */
+// Not @MonotonicNonNull because getopt() resets it to null.
 protected /*@Nullable*/ String nextchar;
 
 /**
@@ -485,7 +488,7 @@ protected String optstring;
   * This is an array of LongOpt objects which describ the valid long 
   * options.
   */
-protected LongOpt /*@Nullable*/ [] long_options;
+protected final LongOpt /*@Nullable*/ [] long_options;
 
 /**
   * This flag determines whether or not we are parsing only long args
@@ -563,6 +566,7 @@ private ResourceBundle _messages = ResourceBundle.getBundle(
 public
 Getopt(String progname, String[] argv, String optstring)
 {
+  // Passes null as the long_options argument
   this(progname, argv, optstring, null, false);
 }
 
@@ -734,7 +738,7 @@ setArgv(String[] argv)
   * each non-option ARGV-element is returned here.
   * No set method is provided because setting this variable has no effect.
   */
-public String
+public /*@Nullable*/ String
 getOptarg()
 {
   return(optarg);
@@ -849,6 +853,10 @@ exchange(String[] argv)
   *
   * @return Various things depending on circumstances
   */
+// Not @Pure because it causes side effects.
+@SuppressWarnings("contracts.postcondition.not.satisfied") // for this.nextchar
+/*@RequiresNonNull({"this.long_options","this.nextchar"})*/
+/*@EnsuresNonNull({"this.long_options","this.nextchar"})*/
 protected int
 checkLongOption()
 {
@@ -1232,7 +1240,8 @@ getopt()
           optarg  = argv[optind];
         }
 
-      c = checkLongOption();
+      if (long_options != null)
+        c = checkLongOption();
 
       if (longopt_handled)
         return(c);

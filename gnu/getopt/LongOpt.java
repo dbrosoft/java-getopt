@@ -25,8 +25,11 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.text.MessageFormat;
 
+/*>>>
 import org.checkerframework.checker.nullness.qual.Nullable;
+import org.checkerframework.dataflow.qual.*;
 import org.checkerframework.framework.qual.AnnotatedFor;
+*/
 
 /**************************************************************************/
 
@@ -150,6 +153,7 @@ LongOpt(String name, int has_arg,
   *
   * @return Then name of the long option
   */
+/*@Pure*/
 public String
 getName()
 {
@@ -163,6 +167,7 @@ getName()
   *
   * @return The value of 'has_arg'
   */
+/*@Pure*/
 public int
 getHasArg()
 {
@@ -176,6 +181,7 @@ getHasArg()
   *
   * @return The value of 'flag'
   */
+/*@Pure*/
 public /*@Nullable*/ StringBuffer
 getFlag()
 {
@@ -187,6 +193,7 @@ getFlag()
   *
   * @return The value of 'val'
   */
+/*@Pure*/
 public int
 getVal()
 {
