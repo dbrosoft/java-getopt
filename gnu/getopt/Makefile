@@ -9,7 +9,7 @@ all:
 	${JAVAC} -cp .:${CP} ${FLAGS} ${SOURCES}
 
 docs: 
-	javadoc -author -version -public Getopt.java LongOpt.java
+	javadoc -d ../../api -author -version -public Getopt.java LongOpt.java
 
 jar:
 	${MAKE} -C ../.. jar
