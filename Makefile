@@ -1,12 +1,16 @@
 JAR=java-getopt-1.0.14-annotated.jar
 
-jar: lib
+jar: clean lib
 	jar cf ${JAR} gnu
 
 lib:
-	(cd gnu/getopt && make)
+	make -C gnu/getopt
 
 clean:
-	(cd gnu/getopt && rm -f *.class)
-	rm -f ${JAR}
+	rm -f gnu/getopt/*.class
+	find . -type f -name "*~" -exec rm -f {} \;
+	rm -f ${JAR} TAGS
+	rm -rf api
 
+TAGS:
+	etags gnu/getopt/*.java
