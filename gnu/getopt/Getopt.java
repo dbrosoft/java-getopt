@@ -90,7 +90,6 @@ import org.checkerframework.framework.qual.AnnotatedFor;
   * non-option argv element.
   * <p>
   * Here is a basic example of using Getopt:
-  * <p>
   * <pre>
   * Getopt g = new Getopt("testprog", argv, "ab:c::d");
   * //
@@ -265,7 +264,6 @@ import org.checkerframework.framework.qual.AnnotatedFor;
   * <p>
   * Here is an expanded Getopt example using long options and various
   * techniques described above:
-  * <p>
   * <pre>
   * int c;
   * String arg;
@@ -341,7 +339,7 @@ import org.checkerframework.framework.qual.AnnotatedFor;
   *          break;
   *     }
   * //
-  * for (int i = g.getOptind(); i < argv.length ; i++)
+  * for (int i = g.getOptind(); i &lt; argv.length ; i++)
   *   System.out.println("Non option argv element: " + argv[i] + "\n");
   * </pre>
   * <p>
@@ -679,7 +677,7 @@ setOptstring(String optstring)
 /**************************************************************************/
 
 /**
-  * optind it the index in ARGV of the next element to be scanned.
+  * optind is the index in ARGV of the next element to be scanned.
   * This is used for communication to and from the caller
   * and for communication between successive calls to `getopt'.
   *
