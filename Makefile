@@ -1,7 +1,9 @@
 JAR=java-getopt-1.0.14-annotated.jar
 
 jar: clean lib
-	jar cf ${JAR} gnu
+	jar xf ${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar
+	jar cf ${JAR} gnu org
+	rm -rf META-INF org
 
 lib:
 	make -C gnu/getopt
