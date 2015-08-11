@@ -29,6 +29,7 @@ import java.text.MessageFormat;
 /*>>>
 import org.checkerframework.checker.nullness.qual.*;
 import org.checkerframework.framework.qual.AnnotatedFor;
+import org.checkerframework.dataflow.qual.Pure;
 */
 
 /**************************************************************************/
@@ -736,6 +737,7 @@ setArgv(String[] argv)
   * each non-option ARGV-element is returned here.
   * No set method is provided because setting this variable has no effect.
   */
+/*@Pure*/
 public /*@Nullable*/ String
 getOptarg()
 {
