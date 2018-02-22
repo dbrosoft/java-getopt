@@ -6,6 +6,6 @@ set -e
 
 export SHELLOPTS
 
-# . ./.travis-build-without-test.sh
+. ./.travis-build-without-test.sh
 
 make
