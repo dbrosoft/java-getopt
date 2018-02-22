@@ -9,7 +9,7 @@ export JAVA_HOME=${JAVA_HOME:-$(dirname $(dirname $(dirname $(readlink -f $(/usr
 
 export JSR308=..
 export AFU=../annotation-tools/annotation-file-utilities
-export CHECKERFRAMEWORK=../checker-framework
+export CHECKERFRAMEWORK=`realpath ../checker-framework`
 
 export PATH=$AFU/scripts:$JAVA_HOME/bin:$PATH
 
