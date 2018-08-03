@@ -18,7 +18,7 @@ To update to a newer version of the upstream library
 In the upstream repository, find the commit corresponding to a public release.
 
 Pull in that commit:
-git pull https://github.com/apache/commons-io <commitid>
+git pull https://github.com/arenn/java-getopt <commitid>
 
 Update the PACKAGE environment variable below.
 
