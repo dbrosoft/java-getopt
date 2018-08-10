@@ -24,7 +24,7 @@ if [ -d ../checker-framework ] ; then
     (cd ../checker-framework && git pull)
 else
     set +e
-    git ls-remote https://github.com/${SLUGOWNER}/checker-framework.git &>-
+    git ls-remote https://github.com/${SLUGOWNER}/checker-framework.git &>/dev/null
     if [ "$?" -ne 0 ]; then
 	CFSLUGOWNER=typetools
     else
