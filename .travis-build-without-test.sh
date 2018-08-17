@@ -39,4 +39,4 @@ fi
 # This also builds annotation-tools and jsr308-langtools
 (cd ../checker-framework/ && ./.travis-build-without-test.sh downloadjdk jdk8)
 
-exiting "Entering java-getopt/.travis-build-without-test.sh" in `pwd`
+echo "Exiting java-getopt/.travis-build-without-test.sh" in `pwd`
