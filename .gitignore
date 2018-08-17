@@ -4,3 +4,5 @@ java-getopt-1.0.14-annotated-javadoc.jar
 java-getopt-1.0.14-annotated-sources.jar
 api
 *.asc
+*.jar
+*.tar.gz
