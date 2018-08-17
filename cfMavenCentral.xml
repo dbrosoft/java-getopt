@@ -19,7 +19,7 @@
         </license>
     </licenses>
 
-    <version>1.0.14</version>
+    <version>1.0.14.0.1</version>
 
     <scm>
         <url>https://github.com/typetools/java-getopt.git</url>

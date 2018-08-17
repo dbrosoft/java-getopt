@@ -1,9 +1,8 @@
-JAR=java-getopt-1.0.14-annotated.jar
+JAR=java-getopt-1.0.14.0.1.jar
 
+## TODO: should require clients to also include checker-qual.jar, rather than including it in a fat jar.
 jar: clean lib
-	jar xf ${CHECKERFRAMEWORK}/checker/dist/checker-qual.jar
-	jar cf ${JAR} gnu org
-	rm -rf META-INF org
+	jar cf ${JAR} gnu
 
 lib:
 	make -C gnu/getopt

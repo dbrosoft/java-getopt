@@ -8,7 +8,7 @@ To build this project
 make
 ```
 
-The `.jar` file is found at, for example, `java-getopt-1.0.14-annotated.jar`.
+The `.jar` file is found at, for example, `java-getopt-1.0.14.0.1.jar`.
 It contains .class files, sources, and API documentation.
 
 
@@ -27,10 +27,9 @@ Update the PACKAGE environment variable below.
 To upload to Maven Central
 --------------------------
 
-# Set a new Maven Central version number in file cfMavenCentral.xml.
-# Set the same version number in this environment variable:
-PACKAGE=java-getopt-1.0.14-annotated
+# Update the version number in Makefile, cfMavenCentral.xml, and this file.
 
+PACKAGE=java-getopt-1.0.14.0.1
 make
 # .md5 and .sha1 files don't get uploaded for uploads after the first one,
 # if you use the same file.  So copy the file.
