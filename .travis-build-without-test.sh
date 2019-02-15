@@ -15,10 +15,14 @@ export CHECKERFRAMEWORK=`realpath ../checker-framework`
 
 export PATH=$AFU/scripts:$JAVA_HOME/bin:$PATH
 
-SLUGOWNER=${TRAVIS_REPO_SLUG%/*}
+SLUGOWNER=${TRAVIS_PULL_REQUEST_SLUG%/*}
+if [[ "$SLUGOWNER" == "" ]]; then
+  SLUGOWNER=${TRAVIS_REPO_SLUG%/*}
+fi
 if [[ "$SLUGOWNER" == "" ]]; then
   SLUGOWNER=typetools
 fi
+echo SLUGOWNER=$SLUGOWNER
 
 ## Build Checker Framework
 if [ -d ../checker-framework ] ; then
