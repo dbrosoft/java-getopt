@@ -20,14 +20,7 @@ git -C /tmp/plume-scripts pull > /dev/null 2>&1 \
 
 ## Build Checker Framework
 
-if [ -d ../checker-framework ] ; then
-    # Older versions of git don't support the -C command-line option
-    (cd ../checker-framework && git pull)
-else
-  /tmp/plume-scripts/git-clone-related typetools checker-framework
-  # This also builds annotation-tools and jsr308-langtools
-  (cd ../checker-framework/ && ./.travis-build-without-test.sh downloadjdk)
-fi
+/tmp/plume-scripts/git-clone-related typetools checker-framework
 export CHECKERFRAMEWORK=`readlink -f ../checker-framework`
 
 # This also builds annotation-tools and jsr308-langtools
