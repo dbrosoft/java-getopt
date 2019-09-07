@@ -20,7 +20,7 @@ git -C /tmp/plume-scripts pull > /dev/null 2>&1 \
 
 ## Build Checker Framework
 
-git-clone-related typetools checker-framework
+/tmp/plume-scripts/git-clone-related typetools checker-framework
 export CHECKERFRAMEWORK=`readlink -f ../checker-framework`
 
 # This also builds annotation-tools and jsr308-langtools
