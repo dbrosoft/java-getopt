@@ -23,7 +23,7 @@ git -C /tmp/plume-scripts pull > /dev/null 2>&1 \
 /tmp/plume-scripts/git-clone-related typetools checker-framework
 export CHECKERFRAMEWORK=`readlink -f ../checker-framework`
 
-# This also builds annotation-tools and jsr308-langtools
+# This also builds annotation-tools
 (cd ../checker-framework/ && ./.travis-build-without-test.sh downloadjdk jdk8)
 
 echo "Exiting java-getopt/.travis-build-without-test.sh" in `pwd`
