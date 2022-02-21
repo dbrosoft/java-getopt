@@ -854,7 +854,7 @@ exchange(String[] argv)
   * @return Various things depending on circumstances
   */
 // Not @Pure because it causes side effects.
-@SuppressWarnings("contracts.postcondition.not.satisfied") // for this.nextchar
+@SuppressWarnings("contracts.postcondition") // for this.nextchar
 @RequiresNonNull({"this.long_options","this.nextchar"})
 @EnsuresNonNull({"this.long_options","this.nextchar"})
 protected int
