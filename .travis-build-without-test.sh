@@ -15,15 +15,15 @@ export CHECKERFRAMEWORK=`realpath ../checker-framework`
 
 export PATH=$AFU/scripts:$JAVA_HOME/bin:$PATH
 
-if [ -d "/tmp/plume-scripts" ] ; then
-  (cd /tmp/plume-scripts && git pull -q) > /dev/null 2>&1
+if [ -d "/tmp/git-scripts" ] ; then
+  (cd /tmp/git-scripts && git pull -q) > /dev/null 2>&1
 else
-  (cd /tmp && git clone --depth 1 -q https://github.com/plume-lib/plume-scripts.git)
+  (cd /tmp && git clone --depth 1 -q https://github.com/plume-lib/git-scripts.git)
 fi
 
 ## Build Checker Framework
 
-/tmp/plume-scripts/git-clone-related typetools checker-framework
+/tmp/git-scripts/git-clone-related typetools checker-framework
 export CHECKERFRAMEWORK=`readlink -f ../checker-framework`
 
 # This also builds annotation-tools
